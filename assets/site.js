@@ -1,0 +1,6 @@
+'use strict';
+const descriptions={pilot:'Выделен пилот: основной процесс закупки без ИИ, подписки и отдельных кабинетов контрагентов.',mvp:'Выделен коммерческий MVP: ограниченный продукт с российским ИИ и подпиской по счёту.',full:'Выделена полная первая очередь: все М1–М11 и С1–С7. Опции О1–О15 оцениваются отдельно.'};
+document.querySelectorAll('[data-scope]').forEach(button=>button.addEventListener('click',()=>{const scope=button.dataset.scope;document.querySelectorAll('[data-scope]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));document.querySelectorAll('[data-col]').forEach(cell=>cell.classList.toggle('selected-col',cell.dataset.col===scope));document.getElementById('scope-summary').textContent=descriptions[scope];}));
+const rate=document.getElementById('rate');
+rate.addEventListener('input',()=>{const n=Number(rate.value);const result=document.getElementById('calc-result');if(!Number.isFinite(n)||n<500||n>15000){result.textContent='Укажите ставку от 500 до 15 000 ₽/час.';return;}const format=new Intl.NumberFormat('ru-RU',{maximumFractionDigits:0});result.textContent=`Полная очередь: ${format.format(1740*n)}–${format.format(2580*n)} ₽`;});
+document.getElementById('print').addEventListener('click',()=>{document.querySelectorAll('details').forEach(d=>d.open=true);window.print();});

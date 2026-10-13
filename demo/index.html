@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="ru">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Контур закупки — демо ЖБИ</title><link rel="stylesheet" href="styles.css"></head>
+<body>
+<header><a class="brand" href="#">▦ Контур закупки</a><span>ЖБИ / рабочее пространство покупателя</span><button id="reset" class="quiet">Начать заново</button></header>
+<main>
+<div class="eyebrow">ПРОТОТИП · СИНТЕТИЧЕСКИЕ ДАННЫЕ</div>
+<section class="intro"><div><h1>От спецификации<br>к выбранному поставщику.</h1><p>Соберите потребность, сравните полную стоимость<br>и сохраните решение по закупке.</p></div><div class="stamp">01 — 04<br><strong>Закупка ЖБИ</strong><br>Демонстрация сценария</div></section>
+<div class="notice">Локальное демо. Заводы, цены и расстояния вымышлены. Рассылки, оплата и ИИ не подключены. Данные сохраняются только в этом браузере.</div>
+<section class="workspace">
+<aside><h2>Ваша заявка</h2><label for="object">Объект поставки</label><input id="object" value="Жуковский · строительный объект"><label for="radius">Радиус подбора, километров</label><input id="radius" type="number" min="1" max="3000" value="300"><label for="spec">Спецификация</label><textarea id="spec" rows="7">ФБС 24.4.6-Т — 20 шт
+ПК 63-15-8 — 12 шт
+КС 15.9 — 8 шт</textarea><p class="hint">Одна позиция на строку: маркировка — количество шт. Маркировки разбираются локальными правилами.</p><button id="parse" class="primary">1. Разобрать спецификацию</button><p id="message" role="status" aria-live="polite"></p></aside>
+<div class="content"><section><div class="section-heading"><h2>01 <span>Проверьте позиции</span></h2><span id="count" class="badge">Нет позиций</span></div><div id="positions" class="empty">Введите спецификацию слева. Неизвестные позиции нужно исправить перед подбором.</div><button id="match" disabled>2. Подобрать заводы</button></section>
+<section><div class="section-heading"><h2>02 <span>Подходящие заводы</span></h2><span class="badge">Демо-каталог</span></div><div id="factories" class="empty">Подбор по подтверждённой номенклатуре и заданному радиусу.</div><button id="request" disabled>3. Получить демо-предложения</button></section>
+<section><div class="section-heading"><h2>03 <span>Сравните предложения</span></h2><button id="export" disabled class="quiet">Скачать CSV</button></div><div id="comparison" class="empty">Сначала выберите адресатов запроса.</div><p id="summary" class="hint"></p></section>
+<section><div class="section-heading"><h2>04 <span>Решение и отгрузка</span></h2></div><div id="shipment" class="empty">Выберите полное предложение в сравнительной таблице.</div></section></div>
+</section><footer>Пилот покупателя · Функциональность полного ТЗ оценивается отдельно</footer>
+</main><script src="app.js"></script>
+</body></html>
